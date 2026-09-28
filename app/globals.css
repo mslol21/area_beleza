@@ -707,7 +707,7 @@ main { width: 100%; }
 }
 
 @media (max-width: 560px) {
-  .sectionShell { width: min(100% - 24px, 1120px); }
+  .sectionShell { width: min(1120px, calc(100% - 24px)); }
 
   .coverInner { width: calc(100% - 28px); padding: 36px 0 34px; }
   .coverImage { object-position: 63% center; }
