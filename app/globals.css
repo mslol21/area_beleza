@@ -1,0 +1,1314 @@
+:root {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Dancing Script', cursive, serif;
+
+  --color-bg: #faf3f3;
+  --color-bg-card: #ffffff;
+  --color-ink: #2a1619;
+  --color-ink-muted: #6b5558;
+  --color-ink-light: #947e81;
+
+  --color-rose-gold: #c57d87;
+  --color-rose-dark: #8c424d;
+  --color-rose-light: #f5dde1;
+  --color-rose-pill: #eed2d7;
+  --color-rose-subtle: #fbf0f2;
+  --color-border: #f0d5d9;
+
+  --color-dark-bg: #190f11;
+  --color-dark-surface: #241619;
+  --color-dark-card: #2e1d21;
+  --color-dark-border: #442a2f;
+
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #1ea952;
+  --color-whatsapp-glow: rgba(37, 211, 102, 0.35);
+
+  --shadow-sm: 0 4px 12px rgba(60, 25, 30, 0.04);
+  --shadow-md: 0 8px 24px rgba(60, 25, 30, 0.08);
+  --shadow-lg: 0 16px 40px rgba(60, 25, 30, 0.12);
+  --shadow-xl: 0 24px 60px rgba(60, 25, 30, 0.16);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   HEADER & NAVEGAÇÃO
+   ========================================================================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 243, 243, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(220, 185, 190, 0.4);
+  transition: all 0.3s ease;
+}
+
+.headerContainer {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brandLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoMonogram {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-rose-gold);
+  letter-spacing: -0.05em;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+}
+
+.logoMonogram::after {
+  content: '♥';
+  font-size: 11px;
+  color: var(--color-rose-dark);
+  position: absolute;
+  top: -2px;
+  right: -8px;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandName {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--color-ink);
+  line-height: 1.1;
+}
+
+.brandCategory {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--color-rose-gold);
+  line-height: 1.1;
+}
+
+.brandSub {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navLink {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.navLink:hover {
+  color: var(--color-rose-dark);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-dark-surface);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: all 0.25s ease;
+}
+
+.headerCtaBtn:hover {
+  background: var(--color-rose-dark);
+  transform: translateY(-1px);
+}
+
+.mobileMenuToggle {
+  display: none;
+  color: var(--color-ink);
+}
+
+.mobileNavDropdown {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border);
+  gap: 16px;
+}
+
+.mobileNavDropdown a {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.mobileNavCta {
+  background: var(--color-whatsapp) !important;
+  color: #fff !important;
+  text-align: center;
+  padding: 12px !important;
+  border-radius: var(--radius-md);
+  font-weight: 700 !important;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.heroSection {
+  padding: 40px 20px 60px;
+  background: radial-gradient(circle at 50% 20%, #fce9ec 0%, #faf3f3 65%);
+  display: flex;
+  justify-content: center;
+}
+
+.heroContainer {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.heroDeviceCard {
+  background: #ffffff;
+  border-radius: 36px;
+  padding: 38px 24px 32px;
+  box-shadow: 0 20px 50px rgba(90, 40, 48, 0.1);
+  border: 1px solid rgba(230, 200, 205, 0.6);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-rose-pill);
+  color: var(--color-ink);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 22px;
+  letter-spacing: 0.02em;
+}
+
+.badgeHeart {
+  color: var(--color-rose-dark);
+}
+
+.badgeHeartText {
+  color: var(--color-rose-dark);
+  font-size: 14px;
+}
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 5vw, 44px);
+  line-height: 1.15;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 12px;
+}
+
+.highlightSerif {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-rose-dark);
+}
+
+.heroSubtitle {
+  font-size: 15px;
+  color: var(--color-ink-muted);
+  max-width: 340px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* Botão WhatsApp Hero */
+.whatsappHeroBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #25d366 0%, #1ea952 100%);
+  color: #ffffff;
+  padding: 16px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 12px 28px var(--color-whatsapp-glow);
+  transition: all 0.3s ease;
+  margin-bottom: 28px;
+}
+
+.whatsappHeroBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(37, 211, 102, 0.45);
+}
+
+.whatsappIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnArrowIcon {
+  transition: transform 0.2s ease;
+}
+
+.whatsappHeroBtn:hover .btnArrowIcon {
+  transform: translateX(4px);
+}
+
+/* Grade de Acesso Rápido (4 cards) */
+.quickNavGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.quickNavItem {
+  background: var(--color-rose-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 14px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.quickNavItem:hover {
+  background: #ffffff;
+  border-color: var(--color-rose-gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.quickIconBubble {
+  color: var(--color-rose-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quickNavLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+/* Showcase Slider Hero */
+.heroShowcaseSlider {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.sliderImageContainer {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.sliderImg {
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.heroShowcaseSlider:hover .sliderImg {
+  transform: scale(1.03);
+}
+
+.sliderOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(25, 14, 16, 0.85) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  text-align: left;
+}
+
+.sliderText h4 {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.sliderText p {
+  font-size: 12px;
+  color: var(--color-rose-light);
+}
+
+.sliderDots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.sliderDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border);
+  transition: all 0.3s ease;
+}
+
+.sliderDot.active {
+  width: 24px;
+  border-radius: 999px;
+  background: var(--color-rose-dark);
+}
+
+/* ==========================================================================
+   4 PILARES / VANTAGENS
+   ========================================================================== */
+.benefitsSection {
+  padding: 50px 0;
+  background: #ffffff;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.benefitCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.benefitIconRing {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-rose-gold);
+  background: var(--color-rose-subtle);
+  color: var(--color-rose-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  transition: transform 0.25s ease;
+}
+
+.benefitCard:hover .benefitIconRing {
+  transform: scale(1.08);
+  background: var(--color-rose-pill);
+}
+
+.benefitTitle {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 6px;
+}
+
+.benefitDesc {
+  font-size: 13px;
+  color: var(--color-ink-muted);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   SEÇÃO NOSSOS SERVIÇOS
+   ========================================================================== */
+.servicesSection {
+  padding: 80px 0;
+}
+
+.sectionHeaderCenter {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 50px;
+}
+
+.sectionCategoryLabel {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-rose-dark);
+  margin-bottom: 8px;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 4vw, 46px);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 8px;
+}
+
+.sectionSubtitle {
+  font-size: 16px;
+  color: var(--color-ink-muted);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.serviceCard {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-rose-gold);
+}
+
+.serviceImageWrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.serviceImage {
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.serviceCard:hover .serviceImage {
+  transform: scale(1.08);
+}
+
+.serviceTagBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--color-dark-surface);
+  color: var(--color-rose-light);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.serviceCardBody {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.serviceCardTitle {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 8px;
+}
+
+.serviceCardDesc {
+  font-size: 14px;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.serviceCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
+  margin-top: auto;
+}
+
+.servicePrice {
+  display: flex;
+  flex-direction: column;
+}
+
+.priceLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-light);
+  font-weight: 600;
+}
+
+.priceValue {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-rose-dark);
+}
+
+.serviceBookBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-rose-subtle);
+  color: var(--color-rose-dark);
+  border: 1px solid var(--color-rose-gold);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: var(--radius-pill);
+  transition: all 0.25s ease;
+}
+
+.serviceBookBtn:hover {
+  background: var(--color-rose-dark);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   SEÇÃO PORTFÓLIO / TRABALHOS
+   ========================================================================== */
+.worksSection {
+  padding: 70px 0;
+  background: #fbf4f5;
+  border-top: 1px solid var(--color-border);
+}
+
+.worksHeaderRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.seeAllWorksBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: var(--color-ink);
+  border: 1px solid var(--color-border);
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+}
+
+.seeAllWorksBtn:hover {
+  background: var(--color-rose-dark);
+  color: #ffffff;
+  border-color: var(--color-rose-dark);
+  transform: translateY(-2px);
+}
+
+.worksMiniGallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.workMiniCard {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.workMiniCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.workImageContainer {
+  position: relative;
+  width: 100%;
+  height: 260px;
+}
+
+.workImage {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.workMiniCard:hover .workImage {
+  transform: scale(1.07);
+}
+
+.workImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(25, 14, 16, 0.85) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px;
+  color: #ffffff;
+}
+
+.workTag {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-rose-light);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.workImageOverlay h4 {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SEÇÃO TABELA DE VALORES
+   ========================================================================== */
+.pricesSection {
+  padding: 80px 0;
+}
+
+.pricesCardContainer {
+  max-width: 580px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 32px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  padding: 42px 32px;
+}
+
+.pricesTableWrap {
+  margin: 32px 0 20px;
+}
+
+.pricesTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.priceRow {
+  border-bottom: 1px dashed #e8d0d4;
+  transition: background 0.2s ease;
+}
+
+.priceRow:hover {
+  background: var(--color-rose-subtle);
+}
+
+.priceServiceCell {
+  padding: 16px 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dotIndicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-rose-gold);
+}
+
+.priceServiceName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.priceValueCell {
+  padding: 16px 8px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.priceValueCell strong {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.priceNoticeText {
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-ink-light);
+  font-style: italic;
+  margin-bottom: 28px;
+}
+
+.priceCtaWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.whatsappPriceBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25d366 0%, #1ea952 100%);
+  color: #ffffff;
+  padding: 15px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: 0 10px 24px var(--color-whatsapp-glow);
+  transition: all 0.3s ease;
+}
+
+.whatsappPriceBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.45);
+}
+
+/* ==========================================================================
+   SEÇÃO DARK LUXO (ATENDIMENTO, FALE COMIGO E DEPOIMENTOS)
+   ========================================================================== */
+.darkLuxurySection {
+  background: var(--color-dark-bg);
+  color: #ffffff;
+  padding: 70px 20px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.darkContainer {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.darkBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.darkBlockHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 4px;
+}
+
+.darkIconCircle {
+  color: var(--color-rose-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.darkSectionTitle {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.darkSectionSubtitle {
+  font-size: 13px;
+  color: #a89498;
+}
+
+/* Card Localização */
+.locationHighlightCard {
+  background: var(--color-dark-card);
+  border: 1px solid var(--color-dark-border);
+  border-radius: 20px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.locationPinBadge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(197, 125, 135, 0.15);
+  color: var(--color-rose-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.locationDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.locationCity {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.locationNotes {
+  font-size: 12px;
+  color: #9f8c8f;
+  margin-top: 2px;
+}
+
+/* Pilha de Botões de Ação Dark */
+.actionButtonsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.darkActionBtn {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 18px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.darkActionBtn.greenHighlight {
+  background: linear-gradient(135deg, #25d366 0%, #1ea952 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 24px var(--color-whatsapp-glow);
+}
+
+.darkActionBtn.greenHighlight:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+}
+
+.darkActionBtn.outlined {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-dark-border);
+  color: #f3e9ea;
+}
+
+.darkActionBtn.outlined:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-rose-gold);
+  transform: translateY(-2px);
+}
+
+.actionBtnIcon {
+  display: flex;
+  align-items: center;
+  margin-right: 14px;
+}
+
+.actionBtnLabel {
+  flex: 1;
+}
+
+.actionBtnArrow {
+  opacity: 0.8;
+  transition: transform 0.2s ease;
+}
+
+.darkActionBtn:hover .actionBtnArrow {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+/* Card Branco de Depoimento */
+.whiteReviewCard {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 24px;
+  color: var(--color-ink);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+}
+
+.reviewCardContent {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.reviewClientAvatarWrap {
+  flex-shrink: 0;
+}
+
+.reviewClientAvatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-rose-gold);
+}
+
+.reviewTextContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewStarsRow {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.starFilled {
+  color: #e56b7c;
+  fill: #e56b7c;
+}
+
+.reviewQuoteText {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-ink);
+  margin-bottom: 8px;
+}
+
+.reviewAuthorRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reviewAuthor {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-ink-muted);
+}
+
+.reviewQuotesMark {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  line-height: 0.5;
+  color: var(--color-rose-gold);
+  font-weight: bold;
+}
+
+/* Assinatura Final em caligrafia */
+.scriptSignSection {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.scriptSignature {
+  font-family: var(--font-script);
+  font-size: 30px;
+  color: #f7e6e8;
+  letter-spacing: 0.02em;
+  margin-bottom: 18px;
+}
+
+.signatureIndicatorDots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #7a6669;
+  font-size: 12px;
+}
+
+.signatureIndicatorDots .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #473236;
+}
+
+.signatureIndicatorDots .dot.active {
+  background: #ffffff;
+}
+
+.pageCounter {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #947e81;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.siteFooter {
+  background: #11090a;
+  border-top: 1px solid #29181b;
+  padding: 30px 20px;
+  color: #8c7679;
+  font-size: 13px;
+}
+
+.footerContainer {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footerBrandCol {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footerMonogram {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-rose-gold);
+}
+
+.footerBrandTitle {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: #e5d7d9;
+}
+
+.footerBrandSubtitle {
+  font-size: 11px;
+  color: #8c7679;
+}
+
+/* ==========================================================================
+   BOTÃO FLUTUANTE WHATSAPP COM PULSE
+   ========================================================================== */
+.floatingWhatsAppContainer {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+}
+
+.floatingWhatsAppBtn {
+  position: relative;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #1ea952 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px var(--color-whatsapp-glow);
+  transition: all 0.3s ease;
+}
+
+.floatingWhatsAppBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 16px 36px rgba(37, 211, 102, 0.5);
+}
+
+.whatsAppBadgeOnline {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onlinePulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #25d366;
+  animation: pulseAnimation 2s infinite;
+}
+
+@keyframes pulseAnimation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE & TABLET)
+   ========================================================================== */
+@media (max-width: 960px) {
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .worksMiniGallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .mobileMenuToggle {
+    display: block;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .worksMiniGallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .worksHeaderRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pricesCardContainer {
+    padding: 30px 18px;
+  }
+
+  .reviewCardContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .reviewStarsRow {
+    justify-content: center;
+  }
+
+  .reviewAuthorRow {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .footerContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footerBrandCol {
+    flex-direction: column;
+  }
+}
