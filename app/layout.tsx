@@ -25,11 +25,11 @@ const dancing = Dancing_Script({
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
-  title: 'Raquel Alves Nails | Nail Design & Spa dos Pés',
-  description: 'Unhas cuidadas para destacar seu estilo. Manicure, alongamento de unhas, nail design e spa dos pés em Guaianases, São Paulo.',
-  keywords: 'manicure guaianases, unhas em gel, alongamento de unhas, spa dos pes, nail design sao paulo',
+  title: 'Bella Nails Atelier | Nail Design & Spa dos Pés (Demonstrativo)',
+  description: 'Modelo demonstrativo para estúdios de unhas e manicures. Alongamento de unhas, nail design e spa dos pés com agendamento direto.',
+  keywords: 'manicure, unhas em gel, alongamento de unhas, spa dos pes, nail design, modelo site manicure',
   openGraph: {
-    title: 'Raquel Alves Nails | Nail Design & Spa dos Pés',
+    title: 'Bella Nails Atelier | Nail Design & Spa dos Pés',
     description: 'Unhas cuidadas para destacar seu estilo. Beleza, cuidado e qualidade em cada detalhe.',
     images: ['/images/hero-nails.jpg'],
   },
